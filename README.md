@@ -1,3 +1,3 @@
 # Linux
 
-Comando e Conceitos
+Comandos e Conceitos
