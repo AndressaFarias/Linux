@@ -9,9 +9,3 @@
 | Exibiir info   pacote | apt-cache show <nomePacote>           |                           |
 | Intalar pacotes       | sud apt-get install <nomePrograma>    |                           |
 | Remover pacotes       | sudo apt-get remove <nomePrograma>    |                           |
-
-
-## Instalação de programas que não estão no repositório
-
-# Execução de Programas
-

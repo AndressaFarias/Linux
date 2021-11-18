@@ -1,36 +1,37 @@
 # Diretórios
-| pwd                       | Descobrir qual o diretório        |
-| cd                        | Muda de diretório.
-| cd ~/workspace            | Podemos também passar para o comando cd o caminho absoluto. Ou podemos usar um atalho para a home do usuário e fazer |
-| ls                        | Lista arquivos e diretórios                                               |
-| ls -l                     | Para listar de forma detalhada                                            |
-| ls -a                     | Para listar os arquivos e diretórios incluindo arquivos ocultos           |
-| ls *                      | Retorna o que há dentro dos diretórios presentes no diretório consultado  |
-| rmdir                     | Remove diretório vazio            | 
+| `pwd`                 | Descobrir qual o diretório        |
+| `cd`                  | Muda de diretório.                |
+| `cd ~/workspace`      | Também passar para o comando cd o caminho absoluto. Ou podemos usar um atalho para a home do usuário e fazer |
+| `ls`                  | Lista arquivos e diretórios                                               |
+| `ls -l`               | Para listar de forma detalhada                                            |
+| `ls -a`               | Para listar os arquivos e diretórios incluindo arquivos ocultos           |
+| `ls *`                | Retorna o que há dentro dos diretórios presentes no diretório consultado  |
+| `rmdir`               | Remove diretório vazio            | 
 
 
 # Impressão em Tela
-| echo                      | Exibe um mensagem                 | 
+| `echo`                | Exibe um mensagem | 
+
 
 # Redirecionando saída
-| echo "msg" > nomeArquivo  | Enia a mnaem pr um arquivo        |
-| >                         | Adiciona ao arquivo sobrescrevendo o que havia nele antes |
-| >>                        | Adiciona ao fim do arquivo |
+| `echo "msg" > nomeArquivo`  | Envia a saida para um arquivo |
+|  `>`                        | Adiciona ao arquivo sobrescrevendo o que havia nele antes |
+|  `>>`                       | Adiciona ao fim do arquivo |
 
 
 # Arquivos 
 
 ##  Leitura de arquivos
-| cat <arq>                 | Recebe o nome do arquivo como argumento e imprime seu conteúdo | 
-| cat <arquivo?.txt>        | ? - busca um caractere não determinado  |
-| cat <arquivo*.txt>        | * - substitui n caracteres não determinados  |
-| cat *.txt                 |  * - substitui n caracteres não determinados |
-| cat <arquivo> -n          | Retorna també a numeração das linhas |
-| head <arquivo>            | Por default retorna as 10 primeiras linhas                                |
-| head <arquivo> -n num     | -n especifica uma quantidade especifica de linhas a serem retornadas      |
-| less                      | Vai abrindo o arquivo aos poucos                                          |
-| tail <arquivo>            | Retorna as 10 ultimas linhas, por default |
-| tail <arquivo> -n num     | -n retorna uma quantidade especifica de linhas |
+| `cat <arq>`                 | Recebe o nome do arquivo como argumento e imprime seu conteúdo | 
+| `cat <arquivo?.txt>`        | `?` - busca um caractere não determinado    |
+| `cat <arquivo*.txt>`        | `*` - substitui _n_ caracteres não determinados     |
+| `cat *.txt`                 | `*` - substitui _n_ caracteres não determinados     |
+| `cat <arquivo> -n`          | Retorna também a numeração das linhas   |
+| `head <arquivo>`            | Por default retorna as 10 primeiras linhas  |
+| `head <arquivo> -n num`     | `-n` especifica uma quantidade especifica de linhas a serem retornadas  |
+| `less`                      | Vai abrindo o arquivo aos poucos    |
+| `tail <arquivo>`            | Retorna as 10 ultimas linhas, por default   |
+| `tail <arquivo> -n num`     | `-n` retorna uma quantidade especifica de linhas    |
 
 
 ## Compressão dr arquivos
@@ -39,6 +40,7 @@
 | tar –xz < <nomeArquivo>.tar.gz| Para descompactar                                 |
 | tar –xzf nomeArquivo.tar.gz   | Podemos adicionar a fla -v = verbose              |
 | zip <nomeDestino.zip> <arqOriginal.zip> -rq | Zip recursivo não verboso           | 
+
 
 ## Descompactar arquivos
 | unzip -q                      | Para reduzir os logs                              |
