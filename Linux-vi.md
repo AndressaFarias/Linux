@@ -1,6 +1,4 @@
 # Comandos vi
-
-
  [esc]      | Sai do modo de edição 
 
  [esc] x    | Apaga caractere atual  

@@ -34,7 +34,7 @@
 | `tail <arquivo> -n num`     | `-n` retorna uma quantidade especifica de linhas    |
 
 
-## Compressão dr arquivos
+## Compressão de arquivos
 | tar -cz <arquivo/diretorio> > <novoarquivo>.tar.gz | Para compactar os arquivos. O parâmetro -c indica ao comando tar que desejamos criar um novo arquivo.|
 | tar –xzf <nomeArquivo.tar.gz> | O comando _tar_ apenas empacota vários arquivos em um único arquivo, sem realizar compactação, e por isso passamos o parâmetro **-z** para indicar que queremos, além de criar um único arquivo, realizar um processo de compactação utilizando o formato .gz. Quando compactamos podemos reduzir o tamanho. O parâmetro **-f** indica que compactaremos para um arquivo. |
 | tar –xz < <nomeArquivo>.tar.gz| Para descompactar                                 |
