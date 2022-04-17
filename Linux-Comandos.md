@@ -1,56 +1,101 @@
-# Diretórios
-| `pwd`                 | Descobrir qual o diretório        |
-| `cd`                  | Muda de diretório.                |
-| `cd ~/workspace`      | Também passar para o comando cd o caminho absoluto. Ou podemos usar um atalho para a home do usuário e fazer |
-| `ls`                  | Lista arquivos e diretórios                                               |
-| `ls -l`               | Para listar de forma detalhada                                            |
-| `ls -a`               | Para listar os arquivos e diretórios incluindo arquivos ocultos           |
-| `ls *`                | Retorna o que há dentro dos diretórios presentes no diretório consultado  |
-| `rmdir`               | Remove diretório vazio            | 
+# Ajuda
+Para saber mais sobre os comandos:
+`man <comando>`
+`<commando> --help`
+
+#  Arquivo - Compactação e descompactação tar
+| `tar -czf <arquivo>.tar.gz <ORIGEM_arquivo|diretorio>` | Para compactar os arquivos. O parâmetro `-c` indica ao comando tar que desejamos criar um novo arquivo. O parâmetro `-z` indica que queremos zipar, além de criar um único arquivo, realizar um processo de compactação utilizando o formato .gz. O parâmetro `-f` indica que compactaremos para um arquivo |
+| `tar –xzf <nomeArquivo.tar.gz>` | Descompacta o arquivo |
+| `tar –vxzf nomeArquivo.tar.gz`  | Podemos adicionar a flag -v = verbose |
 
 
-# Impressão em Tela
-| `echo`                | Exibe um mensagem | 
+#  Arquivo - Criando e abrindo ZIP
+| `unzip -l`                        | Lista os arquivos dentro do arquivo zipado, sem descompactar |
+| `unzip -q`                        | Para reduzir os logs |
+| `zip <nomeDestino.zip> <arqs>`    | Zip de um arquivo |
+| `zip -r <nomeDestino.zip> <dir/>` | Zip de diretório e seus aequivos |
+| `zip <nomeDestino.zip> <arqOriginal.zip> -rq` | Zip recursivo não verboso           | 
 
 
-# Redirecionando saída
-| `echo "msg" > nomeArquivo`  | Envia a saida para um arquivo |
-|  `>`                        | Adiciona ao arquivo sobrescrevendo o que havia nele antes |
-|  `>>`                       | Adiciona ao fim do arquivo |
+#  Arquivos - Leitura
+| `cat <arq>`           | Recebe o nome do arquivo como argumento e imprime seu conteúdo |
+| `cat <arquivo> -n`    | Retorna também a numeração das linhas   |
+| `cat <arquivo?.txt>`  | `?` - busca um caractere não determinado, vai ler todos os arquivos |
+| `cat <arquivo*.txt>`  | `*` - substitui _n_ caracteres não determinados |
+| `cat *.txt`           | `*` - substitui _n_ caracteres não determinados |
 
 
-# Arquivos 
-
-##  Leitura de arquivos
-| `cat <arq>`                 | Recebe o nome do arquivo como argumento e imprime seu conteúdo | 
-| `cat <arquivo?.txt>`        | `?` - busca um caractere não determinado    |
-| `cat <arquivo*.txt>`        | `*` - substitui _n_ caracteres não determinados     |
-| `cat *.txt`                 | `*` - substitui _n_ caracteres não determinados     |
-| `cat <arquivo> -n`          | Retorna também a numeração das linhas   |
 | `head <arquivo>`            | Por default retorna as 10 primeiras linhas  |
 | `head <arquivo> -n num`     | `-n` especifica uma quantidade especifica de linhas a serem retornadas  |
 | `less`                      | Vai abrindo o arquivo aos poucos    |
 | `tail <arquivo>`            | Retorna as 10 ultimas linhas, por default   |
 | `tail <arquivo> -n num`     | `-n` retorna uma quantidade especifica de linhas    |
 
+#  Arquivos - Manipulação
+| `cp origem destino`       | Faz uma cópia do arquivo (origem) com o nome/local `destino` |
+| `mv <origem> <destino>`   | Renomeia o arquivo (origem) para o um novo nome (destino) |
+| `mv <origem> <destino/>`  | Move o arquivo (origem) para o um novo local (destino) |
+| `rm <nomeArq>`            | Remove arquivo |
+| `rm -r <dir/>`            | Remove o diretório e tudo que tem nele |
+| `touch <arquivo.ext>`     | Atualiza a data do arquivo, sem alterar o conteudo |   
 
-## Compressão de arquivos
-| tar -cz <arquivo/diretorio> > <novoarquivo>.tar.gz | Para compactar os arquivos. O parâmetro -c indica ao comando tar que desejamos criar um novo arquivo.|
-| tar –xzf <nomeArquivo.tar.gz> | O comando _tar_ apenas empacota vários arquivos em um único arquivo, sem realizar compactação, e por isso passamos o parâmetro **-z** para indicar que queremos, além de criar um único arquivo, realizar um processo de compactação utilizando o formato .gz. Quando compactamos podemos reduzir o tamanho. O parâmetro **-f** indica que compactaremos para um arquivo. |
-| tar –xz < <nomeArquivo>.tar.gz| Para descompactar                                 |
-| tar –xzf nomeArquivo.tar.gz   | Podemos adicionar a fla -v = verbose              |
-| zip <nomeDestino.zip> <arqOriginal.zip> -rq | Zip recursivo não verboso           | 
+# Diretórios
+| `cd`              | Muda de diretório.                |
+| `cd ~/workspace`  | Também passar para o comando cd o caminho absoluto. Ou podemos usar esse atalho para a home do usuário |
+| `cp -r origem destino`       | Faz uma cópia do diretório (origem) com o nome/local `destino` |
+| `ls`              | Lista arquivos e diretórios |
+| `ls -l`           | Para listar de forma detalhada |
+| `ls -la`          | Para listar os arquivos e diretórios incluindo arquivos ocultos |
+| `ls *`            | Retorna o que há dentro dos diretórios presentes no diretório consultado  |
+| `mkdir <nomeDir>` | Criar diretório |
+| `pwd`             | Descobrir qual o caminho do diretório |
+| `rmdir <dir/>`    | Remove diretório VAZIO|
 
 
-## Descompactar arquivos
-| unzip -q                      | Para reduzir os logs                              |
-| unzip -l                      | Para listar os arquivos dentro do arquivo zipado  |
+# Impressão em Tela
+| `echo <string>` | Exibe uma mensagem no terminal | 
+
+
+# Redirecionando saída
+| `echo "msg" > nomeArquivo`    | Envia a saida para um arquivo |
+|  `>`                          | Adiciona ao arquivo sobrescrevendo o que havia nele antes |
+|  `>>`                         | Adiciona ao fim do arquivo |
+
+
+# Sistema
+| `whoami`          | Retorna o usuário que está sendo usado |
+| `date "+%d/%m/%Y"` | Date + formatação da data a ser exibida. Mais informações de formatação pode ser verificada com o comando date --help |
+
+
+# Terminal
+| `clear` | Limpa terminal (CTRL + l tem a mesma função) |
+
+
+# ---- --------------- REVISADO --------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 ## Manipulação de Arquivos
-| cp origem destino         | Para arquivos. Cópia de diretório precisa ser recursiva | 
+
 | locate <string>           | Busca em todo o sistema os arquivos que tenham string em seu nome     |
-| rm                        | Remove arquivo                    |
+
 
 | wc                            | Utilizado para contar o número de palavras, caracteres e linhas que um arquivo possui.    |
 | wc –w                         | Indica que devem ser contabilizadas apenas o número de palavras que existe em um arquivo. |
@@ -59,20 +104,17 @@
 | wc –L *.txt  (lihas)           | Indica que devem ser contabilizadas todas as linhas do arquivo em que o comando foi executado.
 
 
-# Terminal
-| clear                     | Limpa terminal                    |
 
 
-# Sistema
-| date "+%d/%m%Y"           | Date + formatação da data a ser exibida. Mais informações de formatação pode ser verificada com o comando date --help |
+
+
+
 | man <cmd>                 | Manual dos comandos               |
 | man + "q"                 | Para sair o manual                |
-| mkdir                     | Criar diretório                   | 
-| mv <origem> <destino>     |                                   |
 | passwd                    | Faz alteração de senha do usuário corrente no sistema     |
 | $  sudo passwd            | Para alterar a senha do user root deve executar o comando |
-| touch <arquivo>               | Atualiza a data do arquivo                            |
-| whoami                        | Retorna o usuário que está logado                     |
+                          |
+
 | which <programa>              | Busca onde está localizado o "executável" do programa. | 
 
 
