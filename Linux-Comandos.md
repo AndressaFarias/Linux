@@ -26,8 +26,8 @@ Para saber mais sobre os comandos:
 
 
 | `head <arquivo>`            | Por default retorna as 10 primeiras linhas  |
-| `head <arquivo> -n num`     | `-n` especifica uma quantidade especifica de linhas a serem retornadas  |
-| `less`                      | Vai abrindo o arquivo aos poucos    |
+| `head <arquivo> -n <num>`   | `-n` especifica uma quantidade especifica de linhas a serem retornadas  |
+| `less <arquivo> `           | Vai abrindo o arquivo aos poucos    |
 | `tail <arquivo>`            | Retorna as 10 ultimas linhas, por default   |
 | `tail <arquivo> -n num`     | `-n` retorna uma quantidade especifica de linhas    |
 
