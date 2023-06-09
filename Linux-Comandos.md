@@ -3,6 +3,11 @@ Para saber mais sobre os comandos:
 `man <comando>`
 `<commando> --help`
 
+# Globbing
+* : zero ou mais caracteres
+? : substitiu um / ou mais caracteres
+
+
 #  Arquivo - Compactação e descompactação tar
 | `tar -czf <arquivo>.tar.gz <ORIGEM_arquivo|diretorio>` | Para compactar os arquivos. O parâmetro `-c` indica ao comando tar que desejamos criar um novo arquivo. O parâmetro `-z` indica que queremos zipar, além de criar um único arquivo, realizar um processo de compactação utilizando o formato .gz. O parâmetro `-f` indica que compactaremos para um arquivo |
 | `tar –xzf <nomeArquivo.tar.gz>` | Descompacta o arquivo |
@@ -24,15 +29,17 @@ Para saber mais sobre os comandos:
 | `cat <arquivo*.txt>`  | `*` - substitui _n_ caracteres não determinados |
 | `cat *.txt`           | `*` - substitui _n_ caracteres não determinados |
 
-
+| `more` |
 | `head <arquivo>`            | Por default retorna as 10 primeiras linhas  |
 | `head <arquivo> -n <num>`   | `-n` especifica uma quantidade especifica de linhas a serem retornadas  |
 | `less <arquivo> `           | Vai abrindo o arquivo aos poucos    |
 | `tail <arquivo>`            | Retorna as 10 ultimas linhas, por default   |
 | `tail <arquivo> -n num`     | `-n` retorna uma quantidade especifica de linhas    |
+ tail -n 5 syslog | grep systemd > log5.txt
 
 #  Arquivos - Manipulação
 | `cp origem destino`       | Faz uma cópia do arquivo (origem) com o nome/local `destino` |
+| `cp -r origem destino`    | Faz uma cópia do diretório (origem) com o nome/local `destino` |
 | `mv <origem> <destino>`   | Renomeia o arquivo (origem) para o um novo nome (destino) |
 | `mv <origem> <destino/>`  | Move o arquivo (origem) para o um novo local (destino) |
 | `rm <nomeArq>`            | Remove arquivo |
@@ -40,20 +47,28 @@ Para saber mais sobre os comandos:
 | `touch <arquivo.ext>`     | Atualiza a data do arquivo, sem alterar o conteudo |   
 
 # Diretórios
-| `cd`              | Muda de diretório.                |
-| `cd ~/workspace`  | Também passar para o comando cd o caminho absoluto. Ou podemos usar esse atalho para a home do usuário |
-| `cp -r origem destino`       | Faz uma cópia do diretório (origem) com o nome/local `destino` |
+| `pwd`             | Descobrir qual o caminho do diretório em que estou |
 | `ls`              | Lista arquivos e diretórios |
+| `ls *`            | Retorna o que há dentro dos diretórios presentes no diretório consultado  |
+| `ls -a`           | Para listar os arquivos ocultos |
 | `ls -l`           | Para listar de forma detalhada |
 | `ls -la`          | Para listar os arquivos e diretórios incluindo arquivos ocultos |
-| `ls *`            | Retorna o que há dentro dos diretórios presentes no diretório consultado  |
+| `cd`              | Muda de diretório. Se digitado sem parametro, vai para a home do usuário |
+| `cd ~/workspace`  | Também passar para o comando cd o caminho absoluto. Ou podemos usar esse atalho para a home do usuário |
 | `mkdir <nomeDir>` | Criar diretório |
-| `pwd`             | Descobrir qual o caminho do diretório |
-| `rmdir <dir/>`    | Remove diretório VAZIO|
+| `mkdir -p <nomeDir1>/<nomeDir2>/<nomeDir3>` | Criar um diretório com diversos subdiretórios |
+| `rmdir <dir/>`    | Remove diretório VAZIO |
 
 
 # Impressão em Tela
 | `echo <string>` | Exibe uma mensagem no terminal | 
+
+
+# Pesquisa 
+| `find -maxdepth <num>` | vai limitar quantos niveis irá entrar para faezr a busca |
+| `finde . -amin -5`  | vai retornar os arquivos a partir do direotiro informado que foram alterados nos ultimos 5 minutos
+| `find <dir> -atime -2` | vai retornar os arquivos que foram alterados nos ultimos dois dias |
+| `find <dir> -size +100M` | vai retornar os arquivos com mais de 100 Mega 
 
 
 # Redirecionando saída
@@ -69,6 +84,8 @@ Para saber mais sobre os comandos:
 
 # Terminal
 | `clear` | Limpa terminal (CTRL + l tem a mesma função) |
+| `sort`| irá ordenar a saida. pode ser usado para ordenar a saida de um outro comando, exemplo `cat <arquivo> | sort`|
+
 
 
 # ---- --------------- REVISADO --------------------------
@@ -138,8 +155,12 @@ Para saber mais sobre os comandos:
         `$ cut -c152 Teste_linhas-Com-Erro`
     Seleção de uma faixa de colunas
         `$ cut -c141-155 Teste_linhas-Com-Erro`
+         cat logs | cut -d “ “ -f6- > logs1
     Busca por várias strings
         `cat <arquiv> | grep -E "<String1|string2|string3>"`
+        `cat <arquiv> | grep -E "^<string>"` vai buscar a string que esteja no inicio da palavra
+        `cat <arquiv> | grep -E "<string>$"` vai buscar a string que esteja no fim da palavra
+
     Saida para outro arquivo
         `cat <arquivo> | grep '<string_a_ser_localizada>'> NomeArquivo`
         `cat Teste_linhas-Com-Erro | awk '{print $152}'`
@@ -148,6 +169,11 @@ Para saber mais sobre os comandos:
         `cat arquivo | grep -E "palavra1|palavra2"`
         A opção `-E` descrita no grep acima é usada para fazer uma busca estendida. 
         Pode-se usar apenas egrep no lugar de grep -E que será obtido o mesmo resultado
+        `-i` ignore Case
+    `grep <string> <arquivo> `| pesquisa no arquivo indicado a string informada
+
+    | irá redirecionar a saida de um comando para outro, exemplo : `cat /etc/passwd | grep andressa `
+
 
 # **DIVISÃO DE UM ARQUIVO**
     `split --lines=<NumeroDeLinhas> <Arquivo>`
